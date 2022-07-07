@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IUserRepo } from 'src/users/repo/user-repo.interface';
+import { IUserRepo } from '@app/users/repo/user-repo.interface';
 
 @Injectable()
 export class GetAllUsersUseCases {
