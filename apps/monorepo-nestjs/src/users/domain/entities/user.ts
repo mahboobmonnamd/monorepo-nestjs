@@ -2,14 +2,20 @@ import { Entity, Result, UniqueEntityID } from '@ddd/ddd';
 import { UserEmail } from '../value-objects/email';
 import { UserId } from '../value-objects/userId';
 
-interface UserProps {
+interface UserDomainProps {
   name: string;
   email: UserEmail;
   isVerified?: boolean;
 }
 
-export class User extends Entity<UserProps> {
-  private constructor(props: UserProps, id?: UniqueEntityID) {
+interface UserProps {
+  name: string;
+  email: string;
+  isVerified?: boolean;
+}
+
+export class User extends Entity<UserDomainProps> {
+  private constructor(props: UserDomainProps, id?: UniqueEntityID) {
     super(props, id);
   }
 
@@ -35,9 +41,29 @@ export class User extends Entity<UserProps> {
 
   public static create(props: UserProps, id?: UniqueEntityID): Result<User> {
     try {
-      return Result.ok<User>(new User(props, id));
+      const emailOrError = UserEmail.create(props.email);
+      // check value objects are created correctly. When we have multiple objects use combine else directly check for failure
+      const dtoResult = Result.combine([emailOrError]);
+      if (dtoResult.isFailure) {
+        return Result.fail<User>(dtoResult.getErrorValue());
+      }
+
+      // Get the value of created objects
+      const email = emailOrError.getValue();
+
+      return Result.ok<User>(
+        new User(
+          {
+            name: props.name,
+            email,
+            isVerified: false,
+          },
+          id,
+        ),
+      );
     } catch (error) {
-      Result.fail<User>('User creation error');
+      console.log('🚀 ~ file: user.ts ~ line 72 ~ User ~ error', error);
+      return Result.fail<User>('User creation error');
     }
   }
 }
