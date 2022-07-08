@@ -1,9 +1,13 @@
+import { ValueObject, Result } from '@ddd/ddd/domain';
+
 export interface UserEmailProps {
   value: string;
 }
 
-export class UserEmail {
-  private constructor(private props: UserEmailProps) {}
+export class UserEmail extends ValueObject<UserEmailProps> {
+  private constructor(private props: UserEmailProps) {
+    super(props);
+  }
 
   get value(): string {
     return this.props.value;
@@ -19,10 +23,10 @@ export class UserEmail {
     return email.trim().toLowerCase();
   }
 
-  private static create(email: string): UserEmail {
+  static create(email: string): Result<UserEmail> {
     if (!this.isValidEmail(email)) {
-      throw new Error('Not a valid email');
+      return Result.fail<UserEmail>('Not a valid email');
     }
-    return new UserEmail({ value: this.format(email) });
+    return Result.ok<UserEmail>(new UserEmail({ value: this.format(email) }));
   }
 }

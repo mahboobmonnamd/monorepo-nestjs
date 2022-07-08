@@ -1,4 +1,18 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "src",
+  "projects": {
+    "ddd": {
+      "type": "library",
+      "root": "libs/ddd",
+      "entryFile": "index",
+      "sourceRoot": "libs/ddd/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/ddd/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
 }

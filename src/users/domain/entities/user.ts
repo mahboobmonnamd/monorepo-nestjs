@@ -1,3 +1,4 @@
+import { Entity, Result, UniqueEntityID } from '@ddd/ddd/domain';
 import { UserEmail } from '../value-objects/email';
 
 interface UserProps {
@@ -6,8 +7,10 @@ interface UserProps {
   isVerified?: boolean;
 }
 
-export class User {
-  private constructor(private props: UserProps, private id?: string) {}
+export class User extends Entity<UserProps> {
+  private constructor(private props: UserProps, private id?: string) {
+    super(props);
+  }
 
   get name(): string {
     return this.props.name;
@@ -29,7 +32,7 @@ export class User {
     this.props.isVerified = true;
   }
 
-  public static create(props: UserProps, id?: string): User {
-    return new User(props, id);
+  public static create(props: UserProps, id?: UniqueEntityID): Result<User> {
+    return Result.ok<User>(new User(props, id));
   }
 }
