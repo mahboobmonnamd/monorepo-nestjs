@@ -1,5 +1,5 @@
 // Should manage the errors with addition to nestjs provided
-import { Result } from './Result';
+import { Result } from './result';
 import { UseCaseError } from './use-case-error';
 
 // eslint-disable-next-line @typescript-eslint/no-namespace

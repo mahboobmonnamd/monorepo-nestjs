@@ -9,7 +9,7 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "../",
+    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
@@ -23,6 +23,12 @@
       ],
       "@ddd/ddd/*": [
         "libs/ddd/src/*"
+      ],
+      "@app": [
+        "src"
+      ],
+      "@app/*": [
+        "src/*"
       ]
     }
   }

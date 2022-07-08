@@ -1,11 +1,11 @@
-import { ValueObject, Result } from '@ddd/ddd/domain';
+import { ValueObject, Result } from '@ddd/ddd';
 
 export interface UserEmailProps {
   value: string;
 }
 
 export class UserEmail extends ValueObject<UserEmailProps> {
-  private constructor(private props: UserEmailProps) {
+  private constructor(props: UserEmailProps) {
     super(props);
   }
 
