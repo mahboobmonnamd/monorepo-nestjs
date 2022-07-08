@@ -2,13 +2,11 @@ import { CreateUserDTO as createUserDTO } from 'src/users/usecases/create-user/u
 import { InputType, Field } from '@nestjs/graphql';
 
 @InputType()
-export class CreateUserDTO implements createUserDTO {
-  @Field()
-  userId: string;
+export class CreateUserInput implements createUserDTO {
   @Field()
   name: string;
   @Field()
   email: string;
-  @Field()
-  isVerified: boolean;
+  @Field({ nullable: true })
+  isVerified?: boolean;
 }
