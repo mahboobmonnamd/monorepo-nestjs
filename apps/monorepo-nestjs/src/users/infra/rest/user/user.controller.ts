@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { UserMap } from 'src/users/mappers/UserMap';
-import { GetAllUsersUseCases } from 'src/users/usecases/get-all-users/get-all-users.useCases';
+import { UserMap } from '@app/users/mappers/UserMap';
+import { GetAllUsersUseCases } from '@app/users/usecases/get-all-users/get-all-users.useCases';
 import { GetUserDTO } from '../../graphql/entity/get-user.dto';
 
 @Controller('user')

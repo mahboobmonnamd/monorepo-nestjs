@@ -1,8 +1,8 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { CreateUserDTO as userDTO } from '../dto/create-user.dto';
+import { GetUserDTO as dto } from '../../../usecases/get-all-users/get-user.dto';
 
 @ObjectType()
-export class GetUserDTO implements userDTO {
+export class GetUserDTO implements dto {
   @Field()
   userId: string;
   @Field()

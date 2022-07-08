@@ -2,7 +2,7 @@ import { User } from '@app/users/domain/entities/user';
 import { UserMap } from '@app/users/mappers/UserMap';
 import { Either, Result, right } from '@ddd/ddd';
 import { Inject, Injectable } from '@nestjs/common';
-import { IUserRepo } from 'src/users/repo/user-repo.interface';
+import { IUserRepo } from '@app/users/repo/user-repo.interface';
 
 type Response = Either<Result<any> | Result<void>, Result<User[]>>;
 @Injectable()

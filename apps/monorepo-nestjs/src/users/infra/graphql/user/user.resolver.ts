@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { UserMap } from 'src/users/mappers/UserMap';
-import { GetAllUsersUseCases } from 'src/users/usecases/get-all-users/get-all-users.useCases';
+import { UserMap } from '@app/users/mappers/UserMap';
+import { GetAllUsersUseCases } from '@app/users/usecases/get-all-users/get-all-users.useCases';
 import { CreateUserInput } from '../dto/create-user.dto';
 import { GetUserDTO } from '../entity/get-user.dto';
 

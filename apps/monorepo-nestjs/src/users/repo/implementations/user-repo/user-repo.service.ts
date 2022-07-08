@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { User } from 'src/users/domain/entities/user';
-import { UserMap } from 'src/users/mappers/UserMap';
+import { User } from '@app/users/domain/entities/user';
+import { UserMap } from '@app/users/mappers/UserMap';
 import { IUserRepo } from '../../user-repo.interface';
 import { v4 as uuidv4 } from 'uuid';
 @Injectable()

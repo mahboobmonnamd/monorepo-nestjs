@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { UseCase, AppError, Either, Result, left, right } from '@ddd/ddd';
-import { IUserRepo } from 'src/users/repo/user-repo.interface';
+import { IUserRepo } from '@app/users/repo/user-repo.interface';
 import { CreateUserDTO } from './user.dto';
 import { UserMap } from '@app/users/mappers/UserMap';
 

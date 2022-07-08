@@ -25,10 +25,10 @@
         "libs/ddd/src/*"
       ],
       "@app": [
-        "src"
+        "apps/monorepo-nestjs/src"
       ],
       "@app/*": [
-        "src/*"
+        "apps/monorepo-nestjs/src/*"
       ]
     }
   }
