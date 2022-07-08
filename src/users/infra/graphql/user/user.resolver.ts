@@ -10,7 +10,7 @@ export class UserResolver {
   @Query(() => GetUserDTO)
   async getAllUsers(): Promise<GetUserDTO> {
     const response = await this.getUsers.execute();
-    const result = await new UserMap().toRawUser(response[0]);
-    return result;
+    const user = await new UserMap().toRawUser(response.value.getValue()[0]);
+    return user;
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { User } from 'src/users/domain/entities/user';
 import { UserMap } from 'src/users/mappers/UserMap';
 import { IUserRepo } from '../../user-repo.interface';
-
+import { v4 as uuidv4 } from 'uuid';
 @Injectable()
 export class UserRepoService implements IUserRepo {
   createUser(user: User): Promise<any> {
@@ -10,10 +10,12 @@ export class UserRepoService implements IUserRepo {
     throw new Error('Method not implemented.');
   }
   findAll(): Promise<User[]> {
-    const user = new UserMap().toDomain({
+    const userResponse = new UserMap().toUserDomain({
+      id: uuidv4(),
       name: 'test',
       email: 'test@test.com',
     });
-    return Promise.resolve([user]);
+    // const user = userResponse.value.getValue();
+    return Promise.resolve([userResponse]);
   }
 }

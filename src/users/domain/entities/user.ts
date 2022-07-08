@@ -34,6 +34,10 @@ export class User extends Entity<UserProps> {
   }
 
   public static create(props: UserProps, id?: UniqueEntityID): Result<User> {
-    return Result.ok<User>(new User(props, id));
+    try {
+      return Result.ok<User>(new User(props, id));
+    } catch (error) {
+      Result.fail<User>('User creation error');
+    }
   }
 }

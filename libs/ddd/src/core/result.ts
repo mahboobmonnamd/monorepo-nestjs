@@ -57,7 +57,7 @@ export class Result<T> {
 
 export type Either<L, A> = Left<L, A> | Right<L, A>;
 
-export class Left<L, A> {
+class Left<L, A> {
   readonly value: L;
 
   constructor(value: L) {
@@ -73,7 +73,7 @@ export class Left<L, A> {
   }
 }
 
-export class Right<L, A> {
+class Right<L, A> {
   readonly value: A;
 
   constructor(value: A) {
