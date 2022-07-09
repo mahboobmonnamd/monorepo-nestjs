@@ -16,6 +16,20 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@ddd/ddd": [
+        "libs/ddd/src"
+      ],
+      "@ddd/ddd/*": [
+        "libs/ddd/src/*"
+      ],
+      "@app": [
+        "apps/monorepo-nestjs/src"
+      ],
+      "@app/*": [
+        "apps/monorepo-nestjs/src/*"
+      ]
+    }
   }
 }
