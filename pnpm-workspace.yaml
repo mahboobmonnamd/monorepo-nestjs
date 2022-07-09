@@ -1,0 +1,4 @@
+packages:
+# Rename this with the project name. Rename the folders too.
+  - 'api'
+  - 'ui'
